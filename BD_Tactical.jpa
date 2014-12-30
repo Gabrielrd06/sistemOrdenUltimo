@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings id="_141867802893367" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd" xmlns:ns4="http://nbmodeler.java.net" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <jpa:entity class="Contacto" visibile="true" minimized="false" id="_141867802894570">
+        <jpa:table name="contacto"/>
+        <jpa:attributes>
+            <jpa:id name="idContacto" attribute-type="java.lang.Integer" visibile="true" id="_141867802898777">
+                <jpa:column name="idContacto" unique="false" nullable="false" insertable="true" updatable="true" table="contacto"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="nombre" optional="false" attribute-type="java.lang.String" visibile="true" id="_141867802898778">
+                <jpa:column name="nombre" unique="false" nullable="false" insertable="true" updatable="true" table="contacto" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="telFijo" optional="true" attribute-type="java.lang.String" visibile="true" id="_141867802898779">
+                <jpa:column name="tel_fijo" unique="false" nullable="true" insertable="true" updatable="true" table="contacto" length="9"/>
+            </jpa:basic>
+            <jpa:basic name="telMovil" optional="true" attribute-type="java.lang.String" visibile="true" id="_141867802898780">
+                <jpa:column name="tel_movil" unique="false" nullable="true" insertable="true" updatable="true" table="contacto" length="9"/>
+            </jpa:basic>
+            <jpa:basic name="email" optional="false" attribute-type="java.lang.String" visibile="true" id="_141867802898881">
+                <jpa:column name="email" unique="false" nullable="false" insertable="true" updatable="true" table="contacto" length="45"/>
+            </jpa:basic>
+            <jpa:one-to-many name="proveedorCollection" target-entity="Proveedor" mapped-by="idContacto" connected-entity-id="_141867802897075" connected-attribute-id="_1418678028989122" visibile="true" id="_141867802898882"/>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Area" visibile="true" minimized="false" id="_141867802896971">
+        <jpa:table name="area"/>
+        <jpa:attributes>
+            <jpa:id name="idArea" attribute-type="java.lang.Integer" visibile="true" id="_141867802898883">
+                <jpa:column name="idArea" unique="false" nullable="false" insertable="true" updatable="true" table="area"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="nombre" optional="false" attribute-type="java.lang.String" visibile="true" id="_141867802898884">
+                <jpa:column name="nombre" unique="false" nullable="false" insertable="true" updatable="true" table="area" length="45"/>
+            </jpa:basic>
+            <jpa:one-to-many name="trabajadorCollection" target-entity="Trabajador" mapped-by="idArea" connected-entity-id="_141867802897072" connected-attribute-id="_141867802898892" visibile="true" id="_141867802898885"/>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Trabajador" visibile="true" minimized="false" id="_141867802897072">
+        <jpa:table name="trabajador"/>
+        <jpa:attributes>
+            <jpa:id name="idTrabajador" attribute-type="java.lang.Integer" visibile="true" id="_141867802898886">
+                <jpa:column name="idTrabajador" unique="false" nullable="false" insertable="true" updatable="true" table="trabajador"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="nombres" optional="false" attribute-type="java.lang.String" visibile="true" id="_141867802898887">
+                <jpa:column name="nombres" unique="false" nullable="false" insertable="true" updatable="true" table="trabajador" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="apellidos" optional="false" attribute-type="java.lang.String" visibile="true" id="_141867802898888">
+                <jpa:column name="apellidos" unique="false" nullable="false" insertable="true" updatable="true" table="trabajador" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="dni" optional="false" attribute-type="java.lang.String" visibile="true" id="_141867802898889">
+                <jpa:column name="dni" unique="false" nullable="false" insertable="true" updatable="true" table="trabajador" length="8"/>
+            </jpa:basic>
+            <jpa:basic name="celular" optional="true" attribute-type="java.lang.String" visibile="true" id="_141867802898890">
+                <jpa:column name="celular" unique="false" nullable="true" insertable="true" updatable="true" table="trabajador" length="9"/>
+            </jpa:basic>
+            <jpa:basic name="responsable" optional="false" attribute-type="boolean" visibile="true" id="_141867802898891">
+                <jpa:column name="responsable" unique="false" nullable="false" insertable="true" updatable="true" table="trabajador"/>
+            </jpa:basic>
+            <jpa:many-to-one name="idArea" target-entity="Area" optional="false" primaryKey="false" connected-entity-id="_141867802896971" connected-attribute-id="_141867802898885" visibile="true" id="_141867802898892">
+                <jpa:join-column name="idArea" referenced-column-name="idArea" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="ordenCompraCollection" target-entity="OrdenCompra" mapped-by="idElaborador" connected-entity-id="_141867802897074" connected-attribute-id="_1418678028988114" visibile="true" id="_141867802898893"/>
+            <jpa:one-to-many name="ordenCompraCollection1" target-entity="OrdenCompra" mapped-by="idSolicitante" connected-entity-id="_141867802897074" connected-attribute-id="_1418678028988115" visibile="true" id="_141867802898894"/>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Producto" visibile="true" minimized="false" id="_141867802897073">
+        <jpa:table name="producto"/>
+        <jpa:attributes>
+            <jpa:id name="idProducto" attribute-type="java.lang.Integer" visibile="true" id="_141867802898895">
+                <jpa:column name="idProducto" unique="false" nullable="false" insertable="true" updatable="true" table="producto"/>
+            </jpa:id>
+            <jpa:basic name="marca" optional="false" attribute-type="java.lang.String" visibile="true" id="_141867802898896">
+                <jpa:column name="marca" unique="false" nullable="false" insertable="true" updatable="true" table="producto" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="descripcion" optional="false" attribute-type="java.lang.String" visibile="true" id="_141867802898897">
+                <jpa:column name="descripcion" unique="false" nullable="false" insertable="true" updatable="true" table="producto" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="codigo" optional="true" attribute-type="java.lang.String" visibile="true" id="_141867802898898">
+                <jpa:column name="codigo" unique="false" nullable="true" insertable="true" updatable="true" table="producto" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="valorUnitario" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_141867802898899">
+                <jpa:column name="valor_unitario" unique="false" nullable="true" insertable="true" updatable="true" table="producto"/>
+            </jpa:basic>
+            <jpa:one-to-many name="detalleOrdenCollection" target-entity="DetalleOrden" mapped-by="idProducto" connected-entity-id="_141867802897076" connected-attribute-id="_1418678028989125" visibile="true" id="_1418678028988100"/>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="OrdenCompra" visibile="true" minimized="false" id="_141867802897074">
+        <jpa:table name="orden_compra"/>
+        <jpa:attributes>
+            <jpa:id name="idOrdenCompra" attribute-type="java.lang.Integer" visibile="true" id="_1418678028988101">
+                <jpa:column name="idOrden_Compra" unique="false" nullable="false" insertable="true" updatable="true" table="orden_compra"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="numeroOrden" optional="false" attribute-type="java.lang.String" visibile="true" id="_1418678028988102">
+                <jpa:column name="numero_orden" unique="false" nullable="false" insertable="true" updatable="true" table="orden_compra" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="fechaSolicitud" optional="false" attribute-type="java.util.Date" visibile="true" id="_1418678028988103">
+                <jpa:column name="fecha_solicitud" unique="false" nullable="false" insertable="true" updatable="true" table="orden_compra"/>
+                <jpa:temporal>TIMESTAMP</jpa:temporal>
+            </jpa:basic>
+            <jpa:basic name="fechaProcenvio" optional="true" attribute-type="java.util.Date" visibile="true" id="_1418678028988104">
+                <jpa:column name="fecha_procenvio" unique="false" nullable="true" insertable="true" updatable="true" table="orden_compra"/>
+                <jpa:temporal>TIMESTAMP</jpa:temporal>
+            </jpa:basic>
+            <jpa:basic name="fechaEntrega" optional="true" attribute-type="java.util.Date" visibile="true" id="_1418678028988105">
+                <jpa:column name="fecha_entrega" unique="false" nullable="true" insertable="true" updatable="true" table="orden_compra"/>
+                <jpa:temporal>TIMESTAMP</jpa:temporal>
+            </jpa:basic>
+            <jpa:basic name="fechaRecepcion" optional="true" attribute-type="java.util.Date" visibile="true" id="_1418678028988106">
+                <jpa:column name="fecha_recepcion" unique="false" nullable="true" insertable="true" updatable="true" table="orden_compra"/>
+                <jpa:temporal>TIMESTAMP</jpa:temporal>
+            </jpa:basic>
+            <jpa:basic name="nomProyecto" optional="false" attribute-type="java.lang.String" visibile="true" id="_1418678028988107">
+                <jpa:column name="nom_proyecto" unique="false" nullable="false" insertable="true" updatable="true" table="orden_compra" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="referenciaCompra" optional="false" attribute-type="java.lang.String" visibile="true" id="_1418678028988108">
+                <jpa:column name="referencia_compra" unique="false" nullable="false" insertable="true" updatable="true" table="orden_compra" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="condicionPago" optional="false" attribute-type="java.lang.String" visibile="true" id="_1418678028988109">
+                <jpa:column name="condicion_pago" unique="false" nullable="false" insertable="true" updatable="true" table="orden_compra" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="comprobantePago" optional="false" attribute-type="java.lang.String" visibile="true" id="_1418678028988110">
+                <jpa:column name="comprobante_pago" unique="false" nullable="false" insertable="true" updatable="true" table="orden_compra" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="moneda" optional="true" attribute-type="java.lang.String" visibile="true" id="_1418678028988111">
+                <jpa:column name="moneda" unique="false" nullable="true" insertable="true" updatable="true" table="orden_compra" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="garantia" optional="true" attribute-type="java.lang.String" visibile="true" id="_1418678028988112">
+                <jpa:column name="garantia" unique="false" nullable="true" insertable="true" updatable="true" table="orden_compra" length="45"/>
+            </jpa:basic>
+            <jpa:many-to-one name="idProveedor" target-entity="Proveedor" optional="false" primaryKey="false" connected-entity-id="_141867802897075" connected-attribute-id="_1418678028989121" visibile="true" id="_1418678028988113">
+                <jpa:join-column name="idProveedor" referenced-column-name="idProveedor" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="idElaborador" target-entity="Trabajador" optional="false" primaryKey="false" connected-entity-id="_141867802897072" connected-attribute-id="_141867802898893" visibile="true" id="_1418678028988114">
+                <jpa:join-column name="idElaborador" referenced-column-name="idTrabajador" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="idSolicitante" target-entity="Trabajador" optional="false" primaryKey="false" connected-entity-id="_141867802897072" connected-attribute-id="_141867802898894" visibile="true" id="_1418678028988115">
+                <jpa:join-column name="idSolicitante" referenced-column-name="idTrabajador" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="detalleOrdenCollection" target-entity="DetalleOrden" mapped-by="idOrdenCompra" connected-entity-id="_141867802897076" connected-attribute-id="_1418678028989126" visibile="true" id="_1418678028988116"/>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Proveedor" visibile="true" minimized="false" id="_141867802897075">
+        <jpa:table name="proveedor"/>
+        <jpa:attributes>
+            <jpa:id name="idProveedor" attribute-type="java.lang.Integer" visibile="true" id="_1418678028989117">
+                <jpa:column name="idProveedor" unique="false" nullable="false" insertable="true" updatable="true" table="proveedor"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="ruc" optional="false" attribute-type="java.lang.String" visibile="true" id="_1418678028989118">
+                <jpa:column name="ruc" unique="false" nullable="false" insertable="true" updatable="true" table="proveedor" length="11"/>
+            </jpa:basic>
+            <jpa:basic name="nombre" optional="false" attribute-type="java.lang.String" visibile="true" id="_1418678028989119">
+                <jpa:column name="nombre" unique="false" nullable="false" insertable="true" updatable="true" table="proveedor" length="45"/>
+            </jpa:basic>
+            <jpa:basic name="direccion" optional="false" attribute-type="java.lang.String" visibile="true" id="_1418678028989120">
+                <jpa:column name="direccion" unique="false" nullable="false" insertable="true" updatable="true" table="proveedor" length="45"/>
+            </jpa:basic>
+            <jpa:many-to-one name="idContacto" target-entity="Contacto" optional="false" primaryKey="false" connected-entity-id="_141867802894570" connected-attribute-id="_141867802898882" visibile="true" id="_1418678028989122">
+                <jpa:join-column name="idContacto" referenced-column-name="idContacto" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="ordenCompraCollection" target-entity="OrdenCompra" mapped-by="idProveedor" connected-entity-id="_141867802897074" connected-attribute-id="_1418678028988113" visibile="true" id="_1418678028989121"/>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="DetalleOrden" visibile="true" minimized="false" id="_141867802897076">
+        <jpa:table name="detalle_orden"/>
+        <jpa:attributes>
+            <jpa:id name="idDetalleOrden" attribute-type="java.lang.Integer" visibile="true" id="_1418678028989123">
+                <jpa:column name="idDetalle_Orden" unique="false" nullable="false" insertable="true" updatable="true" table="detalle_orden"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="garantia" optional="true" attribute-type="java.lang.String" visibile="true" id="_1418678028989124">
+                <jpa:column name="garantia" unique="false" nullable="true" insertable="true" updatable="true" table="detalle_orden" length="45"/>
+            </jpa:basic>
+            <jpa:many-to-one name="idProducto" target-entity="Producto" optional="false" primaryKey="false" connected-entity-id="_141867802897073" connected-attribute-id="_1418678028988100" visibile="true" id="_1418678028989125">
+                <jpa:join-column name="idProducto" referenced-column-name="idProducto" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="idOrdenCompra" target-entity="OrdenCompra" optional="false" primaryKey="false" connected-entity-id="_141867802897074" connected-attribute-id="_1418678028988116" visibile="true" id="_1418678028989126">
+                <jpa:join-column name="idOrden_Compra" referenced-column-name="idOrden_Compra" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:many-to-one>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:diagram id="_141867802893368">
+        <plane elementRef="_141867802893367" id="_141867802893369_p">
+            <shape elementRef="_141867802894570" id="_141867802894570_gui">
+                <Bounds x="604.0" y="494.0" width="167.0" height="189.0"/>
+            </shape>
+            <shape elementRef="_141867802896971" id="_141867802896971_gui">
+                <Bounds x="603.0" y="44.0" width="168.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_141867802897072" id="_141867802897072_gui">
+                <Bounds x="328.0" y="17.0" width="196.0" height="252.0"/>
+            </shape>
+            <shape elementRef="_141867802897073" id="_141867802897073_gui">
+                <Bounds x="664.0" y="220.0" width="183.0" height="189.0"/>
+            </shape>
+            <shape elementRef="_141867802897074" id="_141867802897074_gui">
+                <Bounds x="60.0" y="95.0" width="183.0" height="399.0"/>
+            </shape>
+            <shape elementRef="_141867802897075" id="_141867802897075_gui">
+                <Bounds x="360.0" y="494.0" width="189.0" height="189.0"/>
+            </shape>
+            <shape elementRef="_141867802897076" id="_141867802897076_gui">
+                <Bounds x="416.0" y="283.0" width="170.0" height="147.0"/>
+            </shape>
+        </plane>
+    </jpa:diagram>
+</jpa:entity-mappings>
